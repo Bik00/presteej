@@ -1,0 +1,27 @@
+@CHARSET "UTF-8";
+
+/* ============== layout.jsp에 쓰인 CSS ============== */
+
+#container nav {
+	position: fixed;
+	top: 0;
+	width: 100%;
+	height: 80px;
+}
+
+#container footer {
+ 	position: fixed;
+	bottom: 0;
+	width: 100%;
+	height: 50px;
+	background-color: black;
+	color: #9a9a9a;
+	font-size: 12px;
+	text-align: center;
+	padding-top:20px;
+	transition: 0.3s;
+}
+
+#container footer:hover {
+	color:white;
+}
