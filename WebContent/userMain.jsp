@@ -17,7 +17,7 @@
 <div class="w3-top">
   <ul class="w3-navbar w1-white w3-wide w3-padding-4 w3-card-2">
     <li>
-      <a href="#Presteej" class="w3-margin-left">Prestee<b>j</b></a>
+      <a href="#Presteej" class="w3-margin-left">PresteeJ<b>User</b></a>
     </li>
     <li class="w3-right w3-hide-small">
       <a href="#Today Start" class="w3-left">Today Start</a>
