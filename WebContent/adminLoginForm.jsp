@@ -11,7 +11,7 @@
 </head>
 <body>
 	${error }
-	<p id="selectAdmin">관리자 로그인</p>
+	<p id="selectAdmin" style="margin-top:80px">관리자 로그인</p>
 
 	<form action="adminLogin.do" method="post">
 		<div class="imgcontainer">

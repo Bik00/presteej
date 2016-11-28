@@ -13,7 +13,7 @@
 </head>
 <body>
 	${error }
-	<p id="selectUser">일반 회원 로그인</p>
+	<p id="selectUser" style="margin-top:80px">일반 회원 로그인</p>
 
 	<form method="post">
 		<div class="imgcontainer">

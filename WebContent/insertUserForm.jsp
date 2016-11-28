@@ -16,7 +16,7 @@
 <body>
     <!-- div 왼쪽, 오른쪽 바깥여백을 auto로 주면 중앙정렬된다.  -->
         <br><br>
-        <p style="text-align:center"><b><font size="6" color="gray">회원가입</font></b></p>
+        <p style="text-align:center; margin-top:40px"><b><font size="6" color="gray">회원가입</font></b></p>
         <br>
         
         

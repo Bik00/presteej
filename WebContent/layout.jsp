@@ -7,16 +7,17 @@
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>presteej 레이아웃 페이지</title>
 <link rel="stylesheet" href="./css/bnj.layout.css">
+<link rel="stylesheet" href="./css/w3.css">
+<link rel="stylesheet" href="./css/material.min.css">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 </head>
 <body>
 <div id="container">
-<header><nav>
-  <ul>
-    <li><a href="index.do">New</a></li>
-    <c:if test="${sessionScope.id != null }">
-    <li><a href="userLogin.do?command=logout">Logout</a></li>
-    </c:if>
+<header class="w3-top"><nav>
+  <ul class="w3-navbar w1-white w3-wide w3-padding-4 w3-card-2">
+    <li>
+      <a href="index.do" class="w3-margin-left">PresteeJ</a>
+    </li>
   </ul>
 </nav></header>
 <section>
