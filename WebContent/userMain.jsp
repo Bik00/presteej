@@ -12,6 +12,6 @@
 <title>Presteej 메인 화면</title>
 </head>
 <body>
-<h1>구본일 ㅅㅂ 죽일놈</h1>
+<h1>ㅇㅋ 확인했다 이 나쁜놈아</h1>
 </body>
 </html>
