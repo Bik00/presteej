@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="./css/bnj.loginForm.css">
 		<link rel="stylesheet" href="./css/bnj.layout.css">
 	<script src="./js/jquery-3.1.1.min.js"></script>
-	<script src="./js/bnj.registerUser.js"></script>
+	<script src="./js/bnj.insertUser.js"></script>
  	
 </head>
 <body>

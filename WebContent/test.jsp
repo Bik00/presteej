@@ -29,7 +29,7 @@ $(window).on('load', function() {
 		});
 
 		$('#calendar').fullCalendar({
-/* 			theme: true, */
+/*  			theme: true, */
 			header: {
 				left: 'prev,next',
 				center: 'title',

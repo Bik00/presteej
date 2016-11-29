@@ -38,30 +38,48 @@ $(document).ready(function(){
 	//사용자가 가입 폼인 registerForm.jsp 페이지에 입력한 내용을 잦고
 	//registerPro.jsp
 	$("#process").click(function(){
-		checkIt(); //입력 폼에 입력한 상황 체크
-
-		if(status==="true"){
-			var query = {
-				id : $("#id").val(),
-				password : $("#password").val(),
-				name : $("#name").val(),
-				birthyy : $("#birthyy").val(),
-				birthmm : $("#birthmm").val(),
-				birthdd : $("#birthdd").val(),
-				mail1 :  $("#mail1").val(),
-				mail2 :  $("#mail2").val(),
-				phone : $("#phone").val()};
-
-			$.ajax({
-				type : "post",
-				url : "registerUserPro.do",
-				data : query,
-				success : function(data){
-					window.location.href="main.jsp";
-					alert("성공");
-				}
-			});
-		}
+		
+	      if ($("#id").val()) {
+	         // 아이디를 입력하고 [ID 중복확인] 버튼을 클릭한 경우
+	         var query = {
+	            id : $("#id").val()
+	         };
+	         $.ajax({
+	            type : "post", // 요청방식
+	            url : "userConfirmId.do", // 요청페이지
+	            data : query, // 파라미터
+				success : function(data){ //요청 페이지 처리에 서공 시
+					   var check = $(data).find('#ck').text();
+					if(check=="1") {
+	                  checkIt();
+		          		if(status==="true"){
+		        			var query = {
+		        				id : $("#id").val(),
+		        				password : $("#password").val(),
+		        				name : $("#name").val(),
+		        				birthyy : $("#birthyy").val(),
+		        				birthmm : $("#birthmm").val(),
+		        				birthdd : $("#birthdd").val(),
+		        				mail1 :  $("#mail1").val(),
+		        				mail2 :  $("#mail2").val(),
+		        				phone : $("#phone").val()};
+	
+		        			$.ajax({
+		        				type : "post",
+		        				url : "registerUserPro.do",
+		        				data : query,
+		        				success : function(data){
+		        					alert("성공");
+		        					window.location.href="main.jsp";
+		        				}
+		        			});
+		        		}
+	               } else{// 사용할 수 없는 아이디
+	                  alert("아이디 중복");
+	               }
+	            }
+	         });
+	      }
 	});
 });
 
