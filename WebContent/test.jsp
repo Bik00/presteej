@@ -54,7 +54,7 @@ $(window).on('load', function() {
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			events: {
-				url: './json/calendar.json',
+				url: 'loadJson.do',
 				error: function() {
 					$('#script-warning').show();
 				}

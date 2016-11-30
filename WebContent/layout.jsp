@@ -15,9 +15,23 @@
 <div id="container">
 <header class="w3-top"><nav>
   <ul class="w3-navbar w1-white w3-wide w3-padding-4 w3-card-2">
-    <li>
-      <a href="index.do" class="w3-margin-left">PresteeJ</a>
-    </li>
+			<li>
+				<c:if test="${sessionScore==null }">
+					<a href="index.do" class="w3-margin-left">Presteej</a>
+				</c:if>
+
+				<c:if test="${sessionScope.id != null }"><a href="userMain.do" class="w3-margin-left">PresteeJ<b>User</b>
+   			 	</a></c:if>
+			</li>
+  			  <c:if test="${sessionScope.id != null }">
+   			 	<li><a href="userLogin.do?command=logout">Logout</a></li>
+	  			<li class="w3-right w3-hide-small"><a href="#Today Start"
+				class="w3-left">Today Start</a> <a href="#ING" class="w3-left">ING</a>
+				<a href="#Q&A" class="w3-left w3-margin-right">Q&A</a></li>
+  			  </c:if>
+  			  
+
+  			  
   </ul>
 </nav></header>
 <section>

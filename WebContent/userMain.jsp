@@ -13,18 +13,6 @@
 <title>Presteej User 메인 화면</title>
 </head>
 <body>
-	<div class="w3-top">
-		<ul class="w3-navbar w1-white w3-wide w3-padding-4 w3-card-2">
-			<li><a href="userMain.do" class="w3-margin-left">PresteeJ<b>User</b></a>
-			</li>
-  			  <c:if test="${sessionScope.id != null }">
-   			 	<li><a href="userLogin.do?command=logout">Logout</a></li>
-  			  </c:if>
-			<li class="w3-right w3-hide-small"><a href="#Today Start"
-				class="w3-left">Today Start</a> <a href="#ING" class="w3-left">ING</a>
-				<a href="#Q&A" class="w3-left w3-margin-right">Q&A</a></li>
-		</ul>
-	</div>
 
 	<div class="w3-container w3-padding-32" id="Today Start">
 		<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Today
@@ -37,6 +25,13 @@
 				<img src=" " alt="Fren" style="width: 100%">
 			</div>
 		</div>
+	<form action="addItem.do" method="post">
+  <div class="w3-row-padding">
+  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
+ 	상품 등록하기
+</button>
+</form>	
+		
 		<div class="w3-col l3 m6 w3-margin-bottom">
 			<div class="w3-display-container">
 				<div class="w3-display-topleft w3-black w3-padding">경매물품2</div>

@@ -80,7 +80,7 @@ public class UserDBBean {
 			
 			String orgPass = passwd;
 			
-			pstmt=conn.prepareStatement("select userPassword from user where userId = ?");
+			pstmt=conn.prepareStatement("select userPassword from user where userId = ? and userIsAdmin = 0");
 			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
@@ -111,6 +111,52 @@ public class UserDBBean {
 		return x;
 		
 	}
+	// 일반 유저인지 관리자인지 체크하는 메소드
+	
+	public int adminCheck(String id, String passwd){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = 0;
+		
+		try {
+			conn = getConnection();
+			
+			String orgPass = passwd;
+			
+			pstmt=conn.prepareStatement("select userPassword from user where userId = ? and userIsAdmin = 1");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){// 해당아이디가 있으면 수행
+				String dbpasswd = rs.getString("userPassword");
+				if(orgPass.equals(dbpasswd)){
+					x = 1; //인증성공
+				}else{
+					x = 0; //비밀번호 틀림
+				}
+			}else{//해당 아이디가 없으면 수행
+				x = -1;
+			}
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		
+		return x;
+	}
+	
+	
+	
 	//아이디 중복 확인(confirmId.jsp)에서 아이디의 중복여부를 확인하는 메소드
 	public int confirmId(String id){
 		Connection conn = null;

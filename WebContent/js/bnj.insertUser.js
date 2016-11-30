@@ -112,31 +112,31 @@ function checkIt(){
 		status = false;
 		return false;
 	}
-	if(!$("#birthyy").val()){ //주소를 입력하지 않으면 수행
+	if(!$("#birthyy").val()){ //생년월일을 입력하지 않으면 수행
 		alert("생년월일(년도)를 입력하세요");
 		$("#birthyy").focus();
 		status = false;
 		return false;
 	}
-	if(!$("#birthmm").val()){ //주소를 입력하지 않으면 수행
+	if(!$("#birthmm").val()){ //생년월일을 입력하지 않으면 수행
 		alert("생년월일(월)을 선택하세요");
 		$("#birthmm").focus();
 		status = false;
 		return false;
 	}
-	if(!$("#birthdd").val()){ //주소를 입력하지 않으면 수행
+	if(!$("#birthdd").val()){ //생년월일을 입력하지 않으면 수행
 		alert("생년월일(일)을 입력하세요");
 		$("#birthdd").focus();
 		status = false;
 		return false;
 	}
-	if(!$("#mail1").val()){ //주소를 입력하지 않으면 수행
+	if(!$("#mail1").val()){ //이메일을 입력하지 않으면 수행
 		alert("이메일을 입력하세요");
 		$("#mail1").focus();
 		status = false;
 		return false;
 	}
-	if(!$("#mail2").val()){ //주소를 입력하지 않으면 수행
+	if(!$("#mail2").val()){ //이메일을입력하지 않으면 수행
 		alert("이메일 주소를 선택하세요");
 		$("#mail2").focus();
 		status = false;

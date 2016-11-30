@@ -7,7 +7,7 @@
     <!-- css 파일 분리 -->
     <link rel="stylesheet" href="./css/material.min.css">
 	<script src="./js/material.min.js"></script>
-	<link rel="stylesheet" href="./css/bnj.loginForm.css">
+	<link rel="stylesheet" href="./css/bnj.login.css">
 		<link rel="stylesheet" href="./css/bnj.layout.css">
 	<script src="./js/jquery-3.1.1.min.js"></script>
 	<script src="./js/bnj.insertUser.js"></script>
