@@ -45,16 +45,14 @@ public class AddItemAction implements CommandAction {
 	    }catch(Exception e){
 	         e.printStackTrace();
 	    }
-	    ItemDataBean bread = new ItemDataBean();
-	    bread.setBreadName(imageUp.getParameter("breadName"));
-	    bread.setImageUrl(filename); // 서버 저장 이름으로 설정해야 함.
-	    bread.setIngredient(imageUp.getParameter("ingredient"));
-	    bread.setCreatedCount(Integer.parseInt(imageUp.getParameter("createdCount")));
-	    bread.setRemains(Integer.parseInt(imageUp.getParameter("createdCount")));
-	    bread.setPrice(Integer.parseInt(imageUp.getParameter("price")));
+	    ItemDataBean Item = new ItemDataBean();
+	    Item.setItemId(Integer.parseInt(imageUp.getParameter("ItemName")));
+	    Item.setItemName(filename); // 서버 저장 이름으로 설정해야 함.
+	    Item.setItemPrice(Integer.parseInt(imageUp.getParameter("setItemPrice")));
+	    Item.setItemDetail(request.getParameter("detail"));
 
-	    BreadDBBean db = BreadDBBean.getInstance();
-	    int result = db.addNewBread(bread);
+	    ItemDBBean db = ItemDBBean.getInstance();
+	    int result = 0;
 
 	    if(result ==0)
 		request.setAttribute("result","Succeed");
@@ -65,4 +63,4 @@ public class AddItemAction implements CommandAction {
 
 	}
 
-}
+
