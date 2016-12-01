@@ -23,8 +23,10 @@ public class AdminLoginAction implements CommandAction {
 	    
 	    UserDBBean manager = UserDBBean.getInstance();
 	    int check=manager.adminCheck(id, password);
+	    int check2=manager.whoAreYou(id);
 	    session.setAttribute("id", id);
 	    session.setAttribute("check", new Integer(check));
+	    session.setAttribute("check2",new Integer(check2));
 	    return "loginPro.jsp";
 	}
 }

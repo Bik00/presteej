@@ -11,7 +11,6 @@
 	<link rel="stylesheet" href="./css/bnj.login.css">
 		<link rel="stylesheet" href="./css/bnj.layout.css">
 	<script src="./js/jquery-3.1.1.min.js"></script>
-	<script src="./js/bnj.insertUser.js"></script>
  	
 </head>
 <body>
@@ -23,7 +22,7 @@
         
         <!-- 입력한 값을 전송하기 위해 form 태그를 사용한다 -->
         <!-- 값(파라미터) 전송은 POST 방식, 전송할 페이지는 insertUserPro.do -->
-          <div id="wrap">
+          <form action="addItem.do" method="post" enctype="multipart/form-data">
             <table style="width:100%">
                 <tr>
                     <td id="title" style="text-align:center; width:120px;">아이템 이름</td>
@@ -41,7 +40,7 @@
                 <tr>
                     <td style="text-align:center" id="title">이미지 경로</td>
                     <td>
-                        <input id="imgurl" name="imgurl" type="type" maxlength="50">
+                        <input id="imgurl" name="imgurl" type="file" maxlength="50">
                     </td>
                 </tr>
                     
@@ -85,14 +84,14 @@
                 <tr>
                     <td style="text-align:center" id="title">아이템 상세 정보</td>
                     <td>
-                        <input type="textarea" id="detail" name="detail" rows="5"cols="50">
+                        <textarea id="detail" name="detail" rows="10"cols="50"></textarea>
                     </td>
                 </tr>
                    
             </table>
             <br>
-            <input id="process" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="margin-left: 40%" type="button" value="등록"/>
+            <input class="mdl-button mdl-js-button mdl-js-ripple-effect" style="margin-left: 40%" type="submit" value="등록"/>
             <a href="adminMain.jsp"><input class="mdl-button mdl-js-button mdl-js-ripple-effect" type="button"  value="취소"></a>
-		</div>
+		</form>
 </body>
 </html>

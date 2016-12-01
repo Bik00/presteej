@@ -109,7 +109,7 @@ public class UserDBBean {
 		}
 		
 		return x;
-		
+	
 	}
 	// 일반 유저인지 관리자인지 체크하는 메소드
 	
@@ -117,7 +117,7 @@ public class UserDBBean {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
-		int x = 0;
+		int x = -1;
 		
 		try {
 			conn = getConnection();
@@ -153,8 +153,42 @@ public class UserDBBean {
 		}
 		
 		return x;
+	
 	}
 	
+	public int whoAreYou(String id){
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = -1;
+		
+		try {
+			conn = getConnection();
+			
+			
+			pstmt=conn.prepareStatement("select userIsAdmin from user where userId = ?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			x = rs.getInt("userIsAdmin");
+			
+		} catch (Exception e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}finally{
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		
+		return x;
+	
+	}
 	
 	
 	//아이디 중복 확인(confirmId.jsp)에서 아이디의 중복여부를 확인하는 메소드

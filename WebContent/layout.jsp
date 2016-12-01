@@ -14,26 +14,28 @@
 <body>
 <div id="container">
 <header class="w3-top"><nav>
-  <ul class="w3-navbar w1-white w3-wide w3-padding-4 w3-card-2">
-			<li>
-				<c:if test="${sessionScore==null }">
-					<a href="index.do" class="w3-margin-left">Presteej</a>
-				</c:if>
-
-				<c:if test="${sessionScope.id != null }"><a href="userMain.do" class="w3-margin-left">PresteeJ<b>User</b>
-   			 	</a></c:if>
-			</li>
-  			  <c:if test="${sessionScope.id != null }">
-   			 	<li><a href="userLogin.do?command=logout">Logout</a></li>
-	  			<li class="w3-right w3-hide-small"><a href="#Today Start"
-				class="w3-left">Today Start</a> <a href="#ING" class="w3-left">ING</a>
-				<a href="#Q&A" class="w3-left w3-margin-right">Q&A</a></li>
-  			  </c:if>
-  			  
-
-  			  
-  </ul>
-</nav></header>
+				<ul class="w3-navbar w1-white w3-wide w3-padding-4 w3-card-2">
+					<li><c:choose>
+							<c:when test="${sessionScope.check2==null }">
+								<a href="index.do" class="w3-margin-left">Presteej</a>
+							</c:when>
+							<c:when test="${sessionScope.check2=='0'}">
+								<a href="userMain.do" class="w3-margin-left">PresteeJ<b>User</b></a></li>
+					<li><a href="userLogin.do?command=logout">Logout</a></li>
+					<li class="w3-right w3-hide-small"><a href="#Today Start"
+						class="w3-left">Today Start</a> <a href="#ING" class="w3-left">ING</a>
+						<a href="#Q&A" class="w3-left w3-margin-right">Q&A</a></li>
+					</c:when>
+					<c:when test="${sessionScope.check2=='1'}">
+						<li><a href="adminMain.do" class="w3-margin-left">PresteeJ<b>Management</b></a></li>
+						<li><a href="userLogin.do?command=logout">Logout</a></li>
+						<li class="w3-right w3-hide-small"><a href="#Today Hot"
+							class="w3-left">Today Hot</a> <a href="#Border" class="w3-left">게시판</a>
+							<a href="#???" class="w3-left w3-margin-right">???</a></li>
+					</c:when>
+					</c:choose>
+				</ul>
+			</nav></header>
 <section>
   <c:if test="${cont!=null}">
     <jsp:include page="${cont}"></jsp:include>

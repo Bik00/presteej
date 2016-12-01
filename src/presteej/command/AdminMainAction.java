@@ -11,8 +11,10 @@ public class AdminMainAction implements CommandAction {
 		// TODO Auto-generated method stub
 		HttpSession session = request.getSession();
 		String user=(String)session.getAttribute("id");
-		System.out.println(user);
 
-		return "/adminMain.jsp";
+		if(user != null)
+		    return "/adminMain.jsp";
+		else
+		    return "/adminLoginForm.jsp";	    
 	}
 }

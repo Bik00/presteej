@@ -27,9 +27,6 @@
 		</div>
 	<form action="addItem.do" method="post">
   <div class="w3-row-padding">
-  <button class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent">
- 	상품 등록하기
-</button>
 </form>	
 		
 		<div class="w3-col l3 m6 w3-margin-bottom">

@@ -14,18 +14,6 @@
 </head>
 <body>
 
-<div class="w3-top">
-  <ul class="w3-navbar w1-white w3-wide w3-padding-4 w3-card-2">
-    <li>
-      <a href="#Presteej" class="w3-margin-left">PresteeJ<b>Management</b></a>
-    </li>
-    <li class="w3-right w3-hide-small">
-      <a href="#Today Hot" class="w3-left">Today Hot</a>
-      <a href="#Border" class="w3-left">게시판</a>
-      <a href="#???" class="w3-left w3-margin-right">???</a>
-    </li>
-  </ul>
-</div>
 <div class="w3-content w3-padding" style="max-width:1564px">
 
   <div class="w3-container w3-padding-32" id="Today Start">
@@ -38,6 +26,12 @@
  	상품 등록하기
 </button>
 </form>
+  
+  
+  		<div class="w3-container w3-padding-32" id="ING">
+			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">입찰가 현황판</h3>
+			<p>그래프</p>
+		</div>
   
 <!--     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">

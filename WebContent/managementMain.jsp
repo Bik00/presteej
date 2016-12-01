@@ -45,10 +45,7 @@
 			</div>
 		</div>
 
-		<div class="w3-container w3-padding-32" id="ING">
-			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">입찰가 현황판</h3>
-			<p>그래프</p>
-		</div>
+
 		
 </body>
 </html>
