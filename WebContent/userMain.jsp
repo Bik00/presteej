@@ -10,25 +10,18 @@
 <script src="./js/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet" href="./css/material.min.css">
 <script src="./js/material.min.js"></script>
+<script src="./js/bnj.clock.js"></script>
 <title>Presteej User 메인 화면</title>
 </head>
-<body>
+<body onLoad="goforit()">
 
 	<div class="w3-container w3-padding-32" id="Today Start">
 		<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Today
 			Start</h3>
 	</div>
-	<div class="w3-row-padding">
-		<div class="w3-col l3 m6 w3-margin-bottom">
-			<div class="w3-display-container">
-				<div class="w3-display-topleft w3-black w3-padding">경매물품1</div>
-				<img src=" " alt="Fren" style="width: 100%">
-			</div>
-		</div>
-	<form action="addItem.do" method="post">
-  <div class="w3-row-padding">
-</form>	
-		
+	
+			<div id="clock" style="text-align:center"><h2>로딩중...</h2></div>
+
 		<div class="w3-col l3 m6 w3-margin-bottom">
 			<div class="w3-display-container">
 				<div class="w3-display-topleft w3-black w3-padding">경매물품2</div>
@@ -41,7 +34,8 @@
 				<img src="" alt="idea" style="width: 100%">
 			</div>
 		</div>
-
+		
+		
 		<div class="w3-container w3-padding-32" id="ING">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">경매진행중</h3>
 			<p>-오늘의 경매 시작은-</p>

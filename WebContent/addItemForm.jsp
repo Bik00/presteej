@@ -13,6 +13,14 @@
 	<script src="./js/jquery-3.1.1.min.js"></script>
  	
 </head>
+<script>
+function showDiv( id ) {
+	document.all.franBox.style.visibility = 'hidden'; 
+	document.all.ideaBox.style.visibility = 'hidden'; 
+	document.all[ id ].style.visibility = 'visible'; 
+	document.all[ id ].focus();
+}
+</script>
 <body>
     <!-- div 왼쪽, 오른쪽 바깥여백을 auto로 주면 중앙정렬된다.  -->
         <br><br>
@@ -22,7 +30,7 @@
         
         <!-- 입력한 값을 전송하기 위해 form 태그를 사용한다 -->
         <!-- 값(파라미터) 전송은 POST 방식, 전송할 페이지는 insertUserPro.do -->
-          <form action="addItem.do" method="post" enctype="multipart/form-data">
+          <form action="addItemPro.do" method="post" enctype="multipart/form-data">
             <table style="width:100%">
                 <tr>
                     <td id="title" style="text-align:center; width:120px;">아이템 이름</td>
@@ -45,27 +53,25 @@
                 </tr>
                     
                 <tr>
-                    <td style="text-align:center" id="title">사업자 / 특허 번호</td>
+                    <td style="text-align:center" id="title" rowspan="2">사업자 / 특허 번호</td>
                     <td>
-                        <input type="text" id ="itemyy" name="itemyy" maxlength="4" placeholder="년(4자)" size="6" style="width:43%;">
-                        <select id="itemmm" name="itemmm" style="width:11%">
-                            <option value="">월</option>
-                            <option value="01" >1</option>
-                            <option value="02" >2</option>
-                            <option value="03" >3</option>
-                            <option value="04" >4</option>
-                            <option value="05" >5</option>
-                            <option value="06" >6</option>
-                            <option value="07" >7</option>
-                            <option value="08" >8</option>
-                            <option value="09" >9</option>
-                            <option value="10" >10</option>
-                            <option value="11" >11</option>
-                            <option value="12" >12</option>
-                        </select>
-                        <input type="text" id="itemdd" name="itemdd" maxlength="2" placeholder="일" size="4" style="width:43%">
+						프랜차이즈 등록: <input type=radio name=radioBtn onClick="showDiv( 'franBox' );"> 
+						<span id="franBox" style="visibility:hidden">
+						<input type="text"  name="franBox01" maxlength="3" style="width:20%" placeholder="세무서의 기관 코드">-
+						<input type="text"  name="franBox02" maxlength="2" style="width:20%" placeholder="사업자 구분 코드">-
+						<input type="text"  name="franBox03" maxlength="5" style="width:20%" placeholder="일련 번호"></span>
                     </td>
                 </tr>
+                <tr>
+                	<td>
+                		창업 아이템 등록: <input type=radio name=radioBtn onClick="showDiv( 'ideaBox' );"> 
+						<span id="ideaBox" style="visibility:hidden">
+						<input type="text"  name="ideaBox01" maxlength="2" style="width:20%" placeholder="특허 종류">-
+						<input type="text"  name="ideaBox02" maxlength="4" style="width:20%" placeholder="출원 년도">-
+						<input type="text"  name="ideaBox03" maxlength="6" style="width:21%" placeholder="일련번호"></span>
+                	</td>
+                </tr>
+                
                 
                 <tr>
                     <td style="text-align:center" id="title">경매 시작 날짜</td>
