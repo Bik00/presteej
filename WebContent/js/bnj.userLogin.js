@@ -1,4 +1,5 @@
 $(document).ready(function () {
+	
 	$("#loginButton").click(function() {
 		var query = {id:$("#id").val(),
 				password:$("#password").val()};

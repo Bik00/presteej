@@ -11,6 +11,40 @@
 <script src="./js/bnj.userLogin.js"></script>
 <link rel="stylesheet" href="./css/bnj.login.css">
 </head>
+<script>
+$(document).ready(function () {
+	$("#password").keydown(function (e) {
+		  if (e.keyCode == 13) {
+				var query = {
+						id:$("#id").val(),
+						password:$("#password").val()
+						};
+				
+				$.ajax({
+					type:"POST",
+					url:"userLogin.do",
+					data:query,
+					success:function(data) {
+						   var check = $(data).find('#ck').text();
+						   if(check=="1") {
+							   alert("로그인에 성공하셨습니다!");
+								window.location.href="userMain.do";
+						   } else if(check=="0") {
+							   $("#id").val("");
+							   alert("비밀번호가 틀렸습니다.");
+							   $("#password").val("");
+						   } else {
+							   alert("아이디가 틀렸습니다.");
+							   $("#id").val("");
+							   $("#password").val("");
+						   }
+					}
+				});
+		  }
+		});
+});
+
+</script>
 <body>
 	${error }
 	<p id="selectUser" style="margin-top:80px">일반 회원 로그인</p>
