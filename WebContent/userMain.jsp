@@ -24,13 +24,13 @@
 
 		<div class="w3-col l3 m6 w3-margin-bottom">
 			<div class="w3-display-container">
-				<div class="w3-display-topleft w3-black w3-padding">경매물품2</div>
+				<div class="w3-display-topleft w3-black w3-padding">경매물품1</div>
 				<img src="" alt="idea" style="width: 100%">
 			</div>
 		</div>
 		<div class="w3-col l3 m6 w3-margin-bottom">
 			<div class="w3-display-container">
-				<div class="w3-display-topleft w3-black w3-padding">경매물품3</div>
+				<div class="w3-display-topleft w3-black w3-padding">경매물품2</div>
 				<img src="" alt="idea" style="width: 100%">
 			</div>
 		</div>
