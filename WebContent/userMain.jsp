@@ -22,38 +22,13 @@
 	
 			<div id="clock" style="text-align:center"><h2>로딩중...</h2></div>
 
-		<div class="w3-col l3 m6 w3-margin-bottom">
-			<div class="w3-display-container">
-				<div class="w3-display-topleft w3-black w3-padding">경매물품1</div>
-				<img src="" alt="idea" style="width: 100%">
-			</div>
-		</div>
-		<div class="w3-col l3 m6 w3-margin-bottom">
-			<div class="w3-display-container">
-				<div class="w3-display-topleft w3-black w3-padding">경매물품2</div>
-				<img src="" alt="idea" style="width: 100%">
-			</div>
-		</div>
-		
-		
 		<div class="w3-container w3-padding-32" id="ING">
-			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">경매진행중</h3>
-			<p>-오늘의 경매 시작은-</p>
+			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">현재 진행중인 경매 물품 목록</h3>
+ 			<a href="bidList.do"><input type="button" value="보러가기"></a>
 		</div>
 		<div class="w3-container w3-padding-32" id="Q&A">
-			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">Q&A</h3>
-			<p>답장을 받으실 이메일을 써서 질문해주세요!</p>
-			<form action="form.asp" target="_blank">
-				<input class="w3-input" type="text" placeholder="Name" required
-					name="Name"> <input class="w3-input w3-section" type="text"
-					placeholder="Email" required name="Email"> <input
-					class="w3-input w3-section" type="text" placeholder="Subject"
-					required name="Subject"> <input class="w3-input w3-section"
-					type="text" placeholder="Comment" required name="Comment">
-				<button class="w3-btn w3-section" type="submit">
-					<i class="fa fa-paper-plane"></i> 질문전송.
-				</button>
-			</form>
+			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">낙찰 이력</h3>
+ 			<a href="cartList.do"><input type="button" value="보러가기"></a>
 		</div>
 </body>
 </html>

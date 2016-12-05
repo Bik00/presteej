@@ -13,7 +13,7 @@
 </head>
 <body>
 <div id="container">
-<header class="w3-top"><nav>
+<header class="w3-top" style="z-index:2;"><nav>
 				<ul class="w3-navbar w1-white w3-wide w3-padding-4 w3-card-2">
 					<li><c:choose>
 							<c:when test="${sessionScope.check2==null }">
@@ -22,6 +22,7 @@
 							<c:when test="${sessionScope.check2=='0'}">
 								<a href="userMain.do" class="w3-margin-left">PresteeJ<b>User</b></a></li>
 					<li><a href="userLogin.do?command=logout">Logout</a></li>
+					<li><a href="changePasswd.do">Change Info</a></li>
 					<li class="w3-right w3-hide-small"><a href="#Today Start"
 						class="w3-left">Today Start</a> <a href="#ING" class="w3-left">ING</a>
 						<a href="#Q&A" class="w3-left w3-margin-right">Q&A</a></li>
@@ -29,9 +30,11 @@
 					<c:when test="${sessionScope.check2=='1'}">
 						<li><a href="adminMain.do" class="w3-margin-left">PresteeJ<b>Management</b></a></li>
 						<li><a href="userLogin.do?command=logout">Logout</a></li>
-						<li class="w3-right w3-hide-small"><a href="#Today Hot"
-							class="w3-left">Today Hot</a> <a href="#Border" class="w3-left">게시판</a>
-							<a href="#???" class="w3-left w3-margin-right">???</a></li>
+						<li class="w3-right w3-hide-small">
+							<a href="#addItems" class="w3-left">Add Items</a>
+							<a href="#schedule" class="w3-left">Schedules</a>
+							<a href="#graphs" class="w3-left">Graphs</a>
+							<a href="#user" class="w3-left w3-margin-right">Users</a></li>
 					</c:when>
 					</c:choose>
 				</ul>
@@ -41,7 +44,7 @@
     <jsp:include page="${cont}"></jsp:include>
   </c:if>
 </section>
-<footer>
+<footer style="z-index:2;">
   <p> 프로젝트 이름 : Presteej 조 이름 : BnJ 만든 이 : 구본일, 양정석</p>
 </footer>
 </div>

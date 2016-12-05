@@ -9,6 +9,7 @@
 	top: 0;
 	width: 100%;
 	height: 80px;
+	z-index:2;
 }
 
 #container footer {
@@ -22,6 +23,7 @@
 	text-align: center;
 	padding-top:20px;
 	transition: 0.3s;
+	z-index:2;
 }
 
 #container footer:hover {

@@ -11,7 +11,9 @@
 <script src='./calendarjs/jquery.min.js'></script>
 <script src='./calendarjs/jquery-ui.min.js'></script>
 <script src='./calendarjs/fullcalendar.js'></script>
-<!-- 	<link rel="stylesheet" href="./css/material.min.css"> -->
+<link rel="stylesheet" href="./css/bnj.layout.css">
+<link rel="stylesheet" href="./css/w3.css">
+<link rel="stylesheet" href="./css/material.min.css">
 
 <script>
 
@@ -54,7 +56,7 @@ $(window).on('load', function() {
 			editable: true,
 			eventLimit: true, // allow "more" link when too many events
 			events: {
-				url: 'loadJson.do',
+				url: 'json/calendar.json',
 				error: function() {
 					$('#script-warning').show();
 				}
@@ -68,10 +70,11 @@ $(window).on('load', function() {
 <style>
 
 	body {
-		margin: 40px 10px;
+		margin-top: 100px;
 		padding: 0;
 		font-family: "Lucida Grande",Helvetica,Arial,Verdana,sans-serif;
 		font-size: 14px;
+		z-index:0;
 	}
 
 	#calendar {

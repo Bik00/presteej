@@ -97,7 +97,7 @@ function showDiv( id ) {
             </table>
             <br>
             <input class="mdl-button mdl-js-button mdl-js-ripple-effect" style="margin-left: 40%" type="submit" value="등록"/>
-            <a href="adminMain.jsp"><input class="mdl-button mdl-js-button mdl-js-ripple-effect" type="button"  value="취소"></a>
+            <a href="adminMain.do"><input class="mdl-button mdl-js-button mdl-js-ripple-effect" type="button"  value="취소"></a>
 		</form>
 </body>
 </html>

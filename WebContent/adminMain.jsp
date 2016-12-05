@@ -16,7 +16,7 @@
 
 <div class="w3-content w3-padding" style="max-width:1564px">
 
-  <div class="w3-container w3-padding-32" id="Today Start">
+  <div class="w3-container w3-padding-32" id="addItems">
     <h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">아이템 등록하기</h3>
   </div>
 
@@ -27,11 +27,24 @@
 </button>
 </form>
   
-  
-  		<div class="w3-container w3-padding-32" id="ING">
-			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">입찰가 현황판</h3>
-			<p>그래프</p>
+   		<div class="w3-container w3-padding-32" id="schedule">
+			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">경매 일정 현황</h3>
+ 			<a href="itemList.do"><input type="button" value="보러가기"></a>
+			<jsp:include page="/test.jsp" flush="false"/>
 		</div>
+  
+  		<div class="w3-container w3-padding-32" id="graphs">
+			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">입찰가 현황판</h3>
+ 			<a href="history.do"><input type="button" value="보러가기"></a>
+		</div>
+  
+  
+  		<div class="w3-container w3-padding-32" id="user">
+			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">사용자 관리</h3>
+ 			<a href="userList.do"><input type="button" value="클릭"></a>
+		</div>
+		
+  
   
 <!--     <div class="w3-col l3 m6 w3-margin-bottom">
       <div class="w3-display-container">

@@ -2,6 +2,7 @@ package presteej.bean;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
 
@@ -59,4 +60,114 @@ public class ItemDBBean {
         }
     	return result;
     }
+	
+	public int getItemCount() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = -1;
+		
+		try {
+			conn = getConnection();
+			pstmt=conn.prepareStatement("select count(*) from item");
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			x = rs.getInt("count(*)");
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally{
+			if(rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		return x;
+	}
+	
+	public ItemDataBean[] getItems(int count) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ItemDataBean itemList[] = null;
+		int i = 0;
+		try {
+			conn = getConnection();
+			pstmt=conn.prepareStatement("select * from item");
+			rs = pstmt.executeQuery();
+
+			
+			if(rs.next()) {
+				itemList = new ItemDataBean[count];
+				do {
+					ItemDataBean item = new ItemDataBean();
+					item.setItemId(rs.getInt("itemId"));
+					item.setItemName(rs.getString("itemName"));
+					item.setItemPrice(rs.getInt("itemPrice"));
+					item.setItemImgUrl(rs.getString("itemImgUrl"));
+					item.setItemRegNo(rs.getString("itemRegNo"));
+					item.setItemStartDate(rs.getString("itemStartDate"));
+					item.setItemEndDate(rs.getString("itemEndDate"));
+					item.setRemain(rs.getInt("remain"));
+					
+					itemList[i]=item;
+					
+					i++;
+				} while(rs.next());
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally{
+			if(rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		return itemList;
+	}
+	
+	public void deleteItem(String itemName) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		
+		try {
+			conn = getConnection();
+			pstmt = conn.prepareStatement("delete from item where itemName=?");
+			pstmt.setString(1, itemName);
+			pstmt.executeUpdate();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally{
+			if(rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		
+	}
 }

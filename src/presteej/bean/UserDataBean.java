@@ -1,5 +1,6 @@
 package presteej.bean;
 
+import java.sql.Date;
 import java.sql.Timestamp;
 
 public class UserDataBean {
@@ -7,13 +8,14 @@ public class UserDataBean {
     private String userPassword;
     private String userName;
     private String userCellNo;
+    private String userEmail;
 	private String mail1;
     private String mail2;
-    private String Birthyy;
+    private Date userBirthDate;
+	private String Birthyy;
     private String Birthmm;
     private String Birthdd;
 	private Timestamp userCreatedDate;
-	
 	
 	public String getUserId() {
 		return userId;
@@ -75,5 +77,17 @@ public class UserDataBean {
 	}
 	public void setUserCreatedDate(Timestamp userCreatedDate) {
 		this.userCreatedDate = userCreatedDate;
+	}
+    public Date getUserBirthDate() {
+		return userBirthDate;
+	}
+	public void setUserBirthDate(Date userBirthDate) {
+		this.userBirthDate = userBirthDate;
+	}
+	public String getUserEmail() {
+		return userEmail;
+	}
+	public void setUserEmail(String userEmail) {
+		this.userEmail = userEmail;
 	}
 }

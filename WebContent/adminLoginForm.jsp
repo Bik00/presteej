@@ -8,7 +8,7 @@
 <script src="./js/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet" href="./css/material.min.css">
 <script src="./js/material.min.js"></script>
-<script src="./js/bnj.adminLogin.js"></script>
+<script src="./js/bnj.userLogin.js"></script>
 <link rel="stylesheet" href="./css/bnj.login.css">
 
 <script>

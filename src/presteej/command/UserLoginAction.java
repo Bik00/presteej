@@ -19,12 +19,14 @@ public class UserLoginAction implements CommandAction {
 	    	session.removeAttribute("id");
 	        session.invalidate();
 	        return "main.jsp";
-	    }
+	    }	
 	    
 	    UserDBBean manager = UserDBBean.getInstance();
 	    int check=manager.userCheck(id, password);
 	    int check2=manager.whoAreYou(id);
+	    String name = manager.Iam(id);
 	    session.setAttribute("id", id);
+	    session.setAttribute("name", name);
 	    session.setAttribute("check", new Integer(check));
 	    session.setAttribute("check2",new Integer(check2));
 	    return "loginPro.jsp";
