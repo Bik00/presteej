@@ -40,7 +40,7 @@
 				<c:set var="number" value="${0}" />
 				<c:forEach var="item" items="${ItemList}">
 					<tr>
-						<td align="center" width="200"><img src="./upload/${item.getItemImgUrl()}"></td>
+						<td align="center" width="200"><img width="200" height="200" src="./upload/${item.getItemImgUrl()}"></td>
 						<td width="30" id="id">${item.getItemId()}</td>
 						<td width="250" id="name">${item.getItemName()}</td>
 						<td width="30" align="left">${item.getItemPrice()}</td>

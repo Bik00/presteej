@@ -103,7 +103,7 @@ public class ItemDBBean {
 		int i = 0;
 		try {
 			conn = getConnection();
-			pstmt=conn.prepareStatement("select * from item");
+			pstmt=conn.prepareStatement("select * from item where now() >= DATE_FORMAT(itemStartDate, '%Y-%m-%d') and now() <= DATE_FORMAT(itemEndDate, '%Y-%m-%d')");
 			rs = pstmt.executeQuery();
 
 			
