@@ -23,9 +23,8 @@ public class UserListAction implements CommandAction {
 			userList = userProcess.getUsers(count);
 			request.setAttribute("userList", userList);
 		}
-		
+		  
 		request.setAttribute("count", new Integer(count));
 		return "/userList.jsp";
 	}
-
 }

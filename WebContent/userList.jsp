@@ -50,14 +50,14 @@
 						<td width="70">${user.getUserEmail()}</td>
 						<td width="70">${user.getUserCreatedDate()}</td>
 						<td width="50">
-							<a href="modifyUser.do"><button id="edit"
+							<a href="modifyUser.do?id=${user.getUserId()}"><button id="edit"
 								name="${user.getUserId()}"
-								onclick="edit(this)">수정</button></a>
+								>수정</button></a>
 						</td>
 						<td width="50">
 							<button id="delete"
 								name="${user.getUserId()}"
-								onclick="del(this)">삭제</button>
+								>삭제</button>
 						</td>
 					</tr>
 				</c:forEach>

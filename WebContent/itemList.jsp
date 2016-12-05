@@ -41,7 +41,7 @@
 				<c:forEach var="item" items="${ItemList}">
 					<tr>
 						<td align="center" width="200"><img src="./upload/${item.getItemImgUrl()}"></td>
-						<td width="30">${item.getItemId()}</td>
+						<td width="30" id="id">${item.getItemId()}</td>
 						<td width="250" id="name">${item.getItemName()}</td>
 						<td width="30" align="left">${item.getItemPrice()}</td>
 						<td width="200" align="right">${item.getItemRegNo()}</td>
@@ -49,9 +49,9 @@
 						<td width="70">${item.getItemEndDate()}</td>
 						<td width="30">${item.getRemain()}</td>
 						<td width="50">
-							<button id="edit"
-								name="${item.getItemId()}"
-								onclick="edit(this)">수정</button>
+							<a href="modifyItem.do?id=${item.getItemImgUrl()}"><button id="edit"
+								name="${user.getUserId()}"
+								>수정</button></a>
 						</td>
 						<td width="50">
 							<button id="delete"

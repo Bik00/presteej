@@ -4,7 +4,7 @@
 <html lang="ko">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-	<title>presteej index 홈페이지</title>
+	<title>pre teej index 홈페이지</title>
 	<link rel="stylesheet" href="./css/material.min.css">
 	<script src="./js/material.min.js"></script>
 </head>

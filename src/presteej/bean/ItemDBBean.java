@@ -5,6 +5,8 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Timestamp;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
@@ -169,5 +171,86 @@ public class ItemDBBean {
 				} catch (SQLException e) {}
 		}
 		
+	}
+	
+	public int getItemCount(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = -1;
+		
+		try {
+			conn = getConnection();
+			pstmt=conn.prepareStatement("select count(*) from item where itemId=?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			x = rs.getInt("count(*)");
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally{
+			if(rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		return x;
+	}
+	
+	public ItemDataBean[] getItem(int count, String id) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ItemDataBean[] itemList = null;
+		DateFormat sdFormat = new SimpleDateFormat("yyyyMMdd");
+		int i = 0;
+		try {
+			conn = getConnection();
+			pstmt=conn.prepareStatement("select * from item where userId=?");
+			pstmt.setString(1, id);			
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				itemList = new ItemDataBean[count];
+				do {
+					ItemDataBean item = new ItemDataBean();
+					item.setItemId(rs.getInt("itemId"));
+					item.setItemName(rs.getString("itemName"));
+					item.setItemPrice(rs.getInt("itemPrice"));
+					item.setItemImgUrl(rs.getString("itemImgUrl"));
+					item.setItemRegNo(rs.getString("itemRegNo"));
+					item.setItemStartDate(rs.getString("itemStartDate"));	
+					item.setItemEndDate(rs.getString("itemEndDate"));	
+					item.setItemDetail(rs.getString("itemDetail"));						
+					itemList[i]=item;
+					i++;
+				} while(rs.next());
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally{
+			if(rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		return itemList;
 	}
 }

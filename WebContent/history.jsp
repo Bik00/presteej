@@ -19,7 +19,7 @@
 	<div id="bids">
 		<c:if test="${count == 0}">
 			<ul>
-				<li>등록된 회원이 없습니다.
+				<li>등록된 내역이 없습니다.
 			</ul>
 		</c:if>
 		<c:if test="${count > 0}">

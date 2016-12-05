@@ -27,8 +27,9 @@
 				<tr class="title">
 					<td align="center" width="200">그림</td>
 					<td align="center" width="30">번호</td>
-					<td align="center" width="250">아이템 이름</td>
-					<td align="center" width="30">가격</td>
+					<td align="center" width="200">아이템 이름</td>
+					<td align="center" width="70">가격</td>
+					<td align="center" width="70">내가 입찰한 가격</td>
 					<td align="center" width="200">사업자 번호 / 특허 번호</td>
 					<td align="center" width="70">경매 시작 날짜</td>
 					<td align="center" width="70">경매 종료 날짜</td>
@@ -42,8 +43,9 @@
 					<tr>
 						<td align="center" width="200"><img src="upload/${item.getItemImgUrl()}"></td>
 						<td width="30" id="itemId">${item.getItemId()}</td>
-						<td width="250">${item.getItemName()}</td>
-						<td width="30" align="left">${item.getItemPrice()}</td>
+						<td width="200">${item.getItemName()}</td>
+						<td width="70" align="left">${item.getItemPrice()}</td>
+						<td width="70" align="left">${item.getItemPrice()}</td>
 						<td width="200" align="right">${item.getItemRegNo()}</td>
 						<td width="70">${item.getItemStartDate()}</td>
 						<td width="70">${item.getItemEndDate()}</td>

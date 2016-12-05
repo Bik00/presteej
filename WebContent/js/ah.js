@@ -66,26 +66,7 @@ $(window).ready(function() {
 //사용자가 입력폼에 입력한 상황을 체크
 function checkIt(){
 	status = true;
-
-	if(!$("#id").val()){ //아이디를 입력하지 않으면 수행
-		alert("아이디를 입력하세요");
-		$("#id").focus();
-		status = false;
-		return false; //사용자가 서비스를 요청한 시점으로 돌아감
-	}
-	if(!$("#password").val()){ //비밀번호를 입력하지 않으면 수행
-		alert("비밀번호를 입력하세요");
-		$("#password").focus();
-		status = false;
-		return false;
-	}
-	//비밀번호와 재입력 비밀번호가 같지 않으면 수행
-	if($("#password").val() != $("#repass").val()){
-		alert("비밀번호를 동일하게 입력하세요");
-		$("#repass").focus();
-		status = false;
-		return false; //사용자가 서비스를 요청한 시점으로 돌아감
-	}
+	
 	if(!$("#name").val()){ //이름를 입력하지 않으면 수행
 		alert("사용자 이름을 입력하세요");
 		$("#name").focus();

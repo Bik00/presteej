@@ -5,6 +5,9 @@ import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
+
 import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
@@ -422,15 +425,50 @@ public class UserDBBean {
 		return x;
 	}
 	
-	public UserDataBean[] getUsers(int count) throws Exception {
+	public int getUserCount(String id) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = -1;
+		
+		try {
+			conn = getConnection();
+			pstmt=conn.prepareStatement("select count(*) from user where userId=?");
+			pstmt.setString(1, id);
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			x = rs.getInt("count(*)");
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally{
+			if(rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		return x;
+	}
+	
+	public UserDataBean[] getUser(int count, String id) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
 		UserDataBean[] userList = null;
+		DateFormat sdFormat = new SimpleDateFormat("yyyyMMdd");
 		int i = 0;
 		try {
 			conn = getConnection();
-			pstmt=conn.prepareStatement("select * from user where userIsAdmin=0");
+			pstmt=conn.prepareStatement("select * from user where userId=?");
+			pstmt.setString(1, id);			
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
@@ -440,9 +478,14 @@ public class UserDBBean {
 					user.setUserId(rs.getString("userId"));
 					user.setUserPassword(rs.getString("userPassword"));
 					user.setUserName(rs.getString("userName"));
-					user.setUserBirthDate(rs.getDate("userBirthDate"));		
+					user.setUserBirthDate(rs.getDate("userBirthDate"));
+					user.setBirthyy(sdFormat.format(rs.getDate("userBirthDate")).substring(0,4));
+					user.setBirthmm(sdFormat.format(rs.getDate("userBirthDate")).substring(4,6));
+					user.setBirthdd(sdFormat.format(rs.getDate("userBirthDate")).substring(6,8));
+
 					user.setUserCellNo(rs.getString("userCellNo"));	
-					user.setUserEmail(rs.getString("userEmail"));	
+					user.setMail1(rs.getString("userEmail").substring(0,rs.getString("userEmail").indexOf("@")));
+					
 					user.setUserCreatedDate(rs.getTimestamp("userCreatedDate"));	
 					userList[i]=user;
 					i++;
@@ -466,6 +509,58 @@ public class UserDBBean {
 		}
 		return userList;
 	}
+	
+	public UserDataBean[] getUsers(int count) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		UserDataBean[] userList = null;
+		DateFormat sdFormat = new SimpleDateFormat("yyyyMMdd");
+		int i = 0;
+		try {
+			conn = getConnection();
+			pstmt=conn.prepareStatement("select * from user where userIsAdmin=0");	
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()) {
+				userList = new UserDataBean[count];
+				do {
+					UserDataBean user = new UserDataBean();
+					user.setUserId(rs.getString("userId"));
+					user.setUserPassword(rs.getString("userPassword"));
+					user.setUserName(rs.getString("userName"));
+					user.setUserBirthDate(rs.getDate("userBirthDate"));
+					user.setBirthyy(sdFormat.format(rs.getDate("userBirthDate")).substring(0,4));
+					user.setBirthmm(sdFormat.format(rs.getDate("userBirthDate")).substring(4,6));
+					user.setBirthdd(sdFormat.format(rs.getDate("userBirthDate")).substring(6,8));
+
+					user.setUserCellNo(rs.getString("userCellNo"));	
+					user.setMail1(rs.getString("userEmail").substring(0,rs.getString("userEmail").indexOf("@")));
+					
+					user.setUserCreatedDate(rs.getTimestamp("userCreatedDate"));	
+					userList[i]=user;
+					i++;
+				} while(rs.next());
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally{
+			if(rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		return userList;
+	}
+	
 	
 	public void deleteUser(String userId) {
 		Connection conn = null;
@@ -500,13 +595,12 @@ public class UserDBBean {
 		PreparedStatement pstmt = null;
 		try {
 			conn=getConnection();
-			pstmt = conn.prepareStatement("update user set userId=?, userPassword=?, userName=?, userBirthDate=?, userCellNo=?, userEmail=?");
-			pstmt.setString(1,member.getUserId());
-			pstmt.setString(2,member.getUserPassword());
-			pstmt.setString(3,member.getUserName());
-            pstmt.setDate(4, stringToDate(member));
-			pstmt.setString(5, member.getUserCellNo());
-            pstmt.setString(6, member.getMail1()+"@"+member.getMail2());
+			pstmt = conn.prepareStatement("update user set userName=?, userBirthDate=?, userCellNo=?, userEmail=? where userId=?");
+			pstmt.setString(1, member.getUserName());
+            pstmt.setDate(2, stringToDate(member));
+			pstmt.setString(3, member.getUserCellNo());
+            pstmt.setString(4, member.getMail1()+"@"+member.getMail2());
+            pstmt.setString(5, member.getUserId());
 			pstmt.executeUpdate();
 		} catch (Exception ex) {
 			ex.printStackTrace();
