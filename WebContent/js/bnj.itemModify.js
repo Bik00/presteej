@@ -1,14 +1,21 @@
-$(window).ready(function() {
-	$("#delete").click(function() {
-		var query = {name:$("#name").html()};
-		$.ajax({
-			type:"POST",
-			url:"deleteItem.do",
-			data:query,
-			success:function(data) {
-				   alert("삭제");
-				   window.location.reload(true);
+$(window).ready(function() {	
+	$("#process").click(function(){
+			var query = {
+			id : $("#id").text(),
+			name : $("#name").val(),
+			price : $("#price").val(),
+			startdate : $("#startdate").val(),
+			enddate : $("#enddate").val(),
+			detail :  $("#detail").html() }
+			alert(query);
+			$.ajax({
+				type : "post",
+				url : "modifyItemPro.do",
+				data : query,
+				success : function(data){
+					alert("수정 완료");
+					window.location.href="adminMain.do";
 			}
-		});
+	   });
 	});
 });

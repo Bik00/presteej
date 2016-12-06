@@ -95,7 +95,39 @@ public class ItemDBBean {
 		return x;
 	}
 	
-	public ItemDataBean[] getItems(int count) throws Exception {
+	public int getBidCount() {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		int x = -1;
+		
+		try {
+			conn = getConnection();
+			pstmt=conn.prepareStatement("select count(*) from item where now() >= DATE_FORMAT(itemStartDate, '%Y-%m-%d') and now() <= DATE_FORMAT(itemEndDate, '%Y-%m-%d')");
+			rs = pstmt.executeQuery();
+			if(rs.next())
+			x = rs.getInt("count(*)");
+			
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally{
+			if(rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		return x;
+	}
+	
+	public ItemDataBean[] getBids(int count) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
 		ResultSet rs = null;
@@ -105,7 +137,54 @@ public class ItemDBBean {
 			conn = getConnection();
 			pstmt=conn.prepareStatement("select * from item where now() >= DATE_FORMAT(itemStartDate, '%Y-%m-%d') and now() <= DATE_FORMAT(itemEndDate, '%Y-%m-%d')");
 			rs = pstmt.executeQuery();
-
+			
+			if(rs.next()) {
+				itemList = new ItemDataBean[count];
+				do {
+					ItemDataBean item = new ItemDataBean();
+					item.setItemId(rs.getInt("itemId"));
+					item.setItemName(rs.getString("itemName"));
+					item.setItemPrice(rs.getInt("itemPrice"));
+					item.setItemImgUrl(rs.getString("itemImgUrl"));
+					item.setItemRegNo(rs.getString("itemRegNo"));
+					item.setItemStartDate(rs.getString("itemStartDate"));
+					item.setItemEndDate(rs.getString("itemEndDate"));
+					item.setRemain(rs.getInt("remain"));
+					
+					itemList[i]=item;
+					
+					i++;
+				} while(rs.next());
+			}
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally{
+			if(rs != null)
+				try {
+					rs.close();
+				} catch (SQLException e) {}
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
+		return itemList;
+	}
+	
+	public ItemDataBean[] getItems(int count) throws Exception {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		ResultSet rs = null;
+		ItemDataBean itemList[] = null;
+		int i = 0;
+		try {
+			conn = getConnection();
+			pstmt=conn.prepareStatement("select * from item");
+			rs = pstmt.executeQuery();
 			
 			if(rs.next()) {
 				itemList = new ItemDataBean[count];
@@ -151,7 +230,7 @@ public class ItemDBBean {
 		
 		try {
 			conn = getConnection();
-			pstmt = conn.prepareStatement("delete from item where itemName=?");
+			pstmt = conn.prepareStatement("delete from item where itemId=?");
 			pstmt.setString(1, itemName);
 			pstmt.executeUpdate();
 		} catch (Exception ex) {
@@ -206,6 +285,8 @@ public class ItemDBBean {
 		return x;
 	}
 	
+	
+	
 	public ItemDataBean[] getItem(int count, String id) throws Exception {
 		Connection conn = null;
 		PreparedStatement pstmt = null;
@@ -215,7 +296,7 @@ public class ItemDBBean {
 		int i = 0;
 		try {
 			conn = getConnection();
-			pstmt=conn.prepareStatement("select * from item where userId=?");
+			pstmt=conn.prepareStatement("select * from item where itemId=?");
 			pstmt.setString(1, id);			
 			rs = pstmt.executeQuery();
 			
@@ -252,5 +333,32 @@ public class ItemDBBean {
 				} catch (SQLException e) {}
 		}
 		return itemList;
+	}
+	
+	public void modifyItem(ItemDataBean item) {
+		Connection conn = null;
+		PreparedStatement pstmt = null;
+		try {
+			conn=getConnection();
+			pstmt = conn.prepareStatement("update item set itemName=?, itemPrice=?, itemStartDate=?, itemEndDate=?, itemDetail=? where itemId=?");
+			pstmt.setString(1, item.getItemName());
+            pstmt.setInt(2, item.getItemPrice());
+			pstmt.setString(3, item.getItemStartDate());
+            pstmt.setString(4, item.getItemEndDate());
+            pstmt.setString(5, item.getItemDetail());
+            pstmt.setInt(6, item.getItemId());
+			pstmt.executeUpdate();
+		} catch (Exception ex) {
+			ex.printStackTrace();
+		} finally{
+			if(pstmt != null)
+				try {
+					pstmt.close();
+				} catch (SQLException e) {}
+			if(conn != null)
+				try {
+					conn.close();
+				} catch (SQLException e) {}
+		}
 	}
 }

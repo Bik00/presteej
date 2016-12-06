@@ -49,14 +49,14 @@
 						<td width="70">${item.getItemEndDate()}</td>
 						<td width="30">${item.getRemain()}</td>
 						<td width="50">
-							<a href="modifyItem.do?id=${item.getItemImgUrl()}"><button id="edit"
+							<a href="modifyItem.do?id=${item.getItemId()}"><button id="edit"
 								name="${user.getUserId()}"
 								>수정</button></a>
 						</td>
 						<td width="50">
-							<button id="delete"
+						<a href="deleteItem.do?id=${item.getItemId()}"><button id="delete"
 								name="${item.getItemId()}"
-								onclick="del(this)">삭제</button>
+								>삭제</button></a>
 						</td>
 					</tr>
 				</c:forEach>

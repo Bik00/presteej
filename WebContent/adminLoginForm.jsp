@@ -50,6 +50,8 @@ $(document).ready(function () {
 
 <body>
 	${error}
+	<p id="selectAdmin" style="margin-top:80px">관리자 로그인</p>
+	
 	<form method="post">
 		<div class="imgcontainer">
 			<img src="./image/selectAdmin.png" class="avatar">

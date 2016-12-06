@@ -41,7 +41,7 @@
 				<c:set var="number" value="${0}" />
 				<c:forEach var="item" items="${bidList}">
 					<tr>
-						<td align="center" width="200"><img src="upload/${item.getItemImgUrl()}"></td>
+						<td align="center" width="200"><img width="200" height="200" src="upload/${item.getItemImgUrl()}"></td>
 						<td width="30" id="itemId">${item.getItemId()}</td>
 						<td width="200">${item.getItemName()}</td>
 						<td width="70" align="left">${item.getItemPrice()}</td>
@@ -54,7 +54,7 @@
 							<input type="text" id="bidText" name="bidText" maxlength="50">
 						<td width="50">
 							<button id="bid"
-								name="bid">입찰하기</button>
+								name="${item.getItemId()}" onclick="bid(this)">입찰하기</button>
 						</td>
 					</tr>
 				</c:forEach>

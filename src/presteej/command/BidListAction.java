@@ -18,17 +18,16 @@ public class BidListAction implements CommandAction {
 	    HttpSession session = request.getSession();
 		
 	    ItemDBBean ItemProcess = ItemDBBean.getInstance();
-		count = ItemProcess.getItemCount();
+		count = ItemProcess.getBidCount();
 
 		if(count >0) {
-			itemList = ItemProcess.getItems(count);
+			itemList = ItemProcess.getBids(count);
 			request.setAttribute("bidList", itemList);
 		}
 		
 	    BidDBBean bidProcess = BidDBBean.getInstance();
 		
 		request.setAttribute("name", session.getAttribute("name"));
-		System.out.println(session.getAttribute("name"));
 		request.setAttribute("count", new Integer(count));
 		return "/bidList.jsp";
 	}

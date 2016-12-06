@@ -535,7 +535,7 @@ public class UserDBBean {
 					user.setBirthdd(sdFormat.format(rs.getDate("userBirthDate")).substring(6,8));
 
 					user.setUserCellNo(rs.getString("userCellNo"));	
-					user.setMail1(rs.getString("userEmail").substring(0,rs.getString("userEmail").indexOf("@")));
+					user.setUserEmail(rs.getString("userEmail").substring(0,rs.getString("userEmail").indexOf("@")));
 					
 					user.setUserCreatedDate(rs.getTimestamp("userCreatedDate"));	
 					userList[i]=user;

@@ -8,7 +8,6 @@
 <script src="./js/jquery-3.1.1.min.js"></script>
 <link rel="stylesheet" href="./css/material.min.css">
 <script src="./js/material.min.js"></script>
-<script src="./js/bnj.userModify.js"></script>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <title>일반 회원 리스트 화면</title>
 </head>
@@ -55,9 +54,9 @@
 								>수정</button></a>
 						</td>
 						<td width="50">
-							<button id="delete"
+							<a href="deleteUser.do?id=${user.getUserId()}"><button id="delete"
 								name="${user.getUserId()}"
-								>삭제</button>
+								>삭제</button></a>
 						</td>
 					</tr>
 				</c:forEach>

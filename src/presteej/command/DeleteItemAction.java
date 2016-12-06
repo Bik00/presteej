@@ -10,12 +10,12 @@ public class DeleteItemAction implements CommandAction {
 	@Override
 	public String requestPro(HttpServletRequest request, HttpServletResponse response) throws Throwable {
 		// TODO Auto-generated method stub
-		String itemName = request.getParameter("name");
+		String itemId = request.getParameter("id");
 		
 		ItemDBBean process = ItemDBBean.getInstance();
-		process.deleteItem(itemName);
+		process.deleteItem(itemId);
 		
-		return "deletePro.jsp";
+		return "/adminMain.jsp";
 	}
 
 }

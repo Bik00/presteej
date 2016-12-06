@@ -24,11 +24,14 @@
 
 		<div class="w3-container w3-padding-32" id="ING">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">현재 진행중인 경매 물품 목록</h3>
- 			<a href="bidList.do"><input type="button" value="보러가기"></a>
+ 			<a href="bidList.do"><input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" value="보러가기"></a>
 		</div>
 		<div class="w3-container w3-padding-32" id="Q&A">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">낙찰 이력</h3>
- 			<a href="cartList.do"><input type="button" value="보러가기"></a>
+ 			<a href="cartList.do"><input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" value="보러가기"></a>
 		</div>
+		<br>
+		<br>
+		<br>
 </body>
 </html>

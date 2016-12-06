@@ -10,7 +10,7 @@
 	<link rel="stylesheet" href="./css/bnj.login.css">
 		<link rel="stylesheet" href="./css/bnj.layout.css">
 	<script src="./js/jquery-3.1.1.min.js"></script>
-	<script src="./js/ah.js"></script>
+	<script src="./js/bnj.userModify.js"></script>
  	<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
  	
 </head>
@@ -74,10 +74,12 @@
                     </td>
                 </tr>
             </table>
+            <div id="id" style="display:none">${user.getUserId()}</div>
    		</c:forEach>  
             <br>
             <input id="process" class="mdl-button mdl-js-button mdl-js-ripple-effect" style="margin-left: 40%" type="button" value="수정"/>
             <a href="userList.do"><input class="mdl-button mdl-js-button mdl-js-ripple-effect" type="button"  value="취소"></a>
 		</div>
+				
 </body>
 </html>

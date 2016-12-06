@@ -15,7 +15,6 @@ public class DeleteUserAction implements CommandAction {
 		UserDBBean process = UserDBBean.getInstance();
 		process.deleteUser(userId);
 		
-		return "deletePro.jsp";
+		return "/adminMain.jsp";
 	}
-
 }

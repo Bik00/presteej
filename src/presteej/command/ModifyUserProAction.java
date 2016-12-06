@@ -18,14 +18,15 @@ public class ModifyUserProAction implements CommandAction {
 		UserDataBean member = new UserDataBean();
 		
 		member.setUserId(request.getParameter("id"));
-		member.setUserPassword(request.getParameter("password"));
 		member.setUserName(request.getParameter("name"));
-		member.setUserCellNo(request.getParameter("phone"));
 		member.setBirthyy(request.getParameter("birthyy"));
 		member.setBirthmm(request.getParameter("birthmm"));
 		member.setBirthdd(request.getParameter("birthdd"));
 		member.setMail1(request.getParameter("mail1"));
 		member.setMail2(request.getParameter("mail2"));
+		member.setUserCellNo(request.getParameter("phone"));
+		
+		System.out.println(member.getUserId());
 		
 		UserDBBean dbPro = UserDBBean.getInstance();
 		dbPro.modifyMember(member);

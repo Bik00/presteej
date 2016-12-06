@@ -16,7 +16,6 @@ public class ModifyUserAction implements CommandAction {
 		int count = 0;
 	    HttpSession session = request.getSession();
 	    String id = request.getParameter("id");
-	    System.out.println(id);
 	    
 	    UserDBBean userProcess = UserDBBean.getInstance();
 		count = userProcess.getUserCount(id);
@@ -25,7 +24,6 @@ public class ModifyUserAction implements CommandAction {
 			userList = userProcess.getUser(count, id);
 			request.setAttribute("userList", userList);
 		}
-		
 		return "/modifyUserForm.jsp";
 	}
 

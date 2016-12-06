@@ -29,41 +29,22 @@
   
    		<div class="w3-container w3-padding-32" id="schedule">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">경매 일정 현황</h3>
- 			<a href="itemList.do"><input type="button" value="보러가기"></a>
+ 			<a href="itemList.do"><input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" value="보러가기"></a>
 			<jsp:include page="/test.jsp" flush="false"/>
 		</div>
   
   		<div class="w3-container w3-padding-32" id="graphs">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">입찰가 현황판</h3>
- 			<a href="history.do"><input type="button" value="보러가기"></a>
+ 			<a href="history.do"><input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" value="보러가기"></a>
 		</div>
   
   
   		<div class="w3-container w3-padding-32" id="user">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">사용자 관리</h3>
- 			<a href="userList.do"><input type="button" value="클릭"></a>
+ 			<a href="userList.do"><input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" value="클릭"></a>
 		</div>
-		
-  
-  
-<!--     <div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Hot1</div>
-      	  <img src=" " alt="Fren" style="width:100%">
-   	   </div>
-   	 </div>
-	<div class="w3-col l3 m6 w3-margin-bottom">
-      <div class="w3-display-container">
-        <div class="w3-display-topleft w3-black w3-padding">Hot2</div>
-      	  <img src="" alt="idea" style="width:100%">
-     	 </div>
-		</div>
-    <div class="w3-col l3 m6 w3-margin-bottom">
-     <div class="w3-display-container">
-       <div class="w3-display-topleft w3-black w3-padding">Hot3</div>
-     	   <img src="" alt="idea" style="width:100%">
-  	   </div>
-	 </div> -->
-	</div>
+		<br>
+		<br>
+		<br>
 </body>
 </html>
