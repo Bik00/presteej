@@ -26,6 +26,13 @@
 	z-index:2;
 }
 
-#container footer:hover {
+#footer:hover {
 	color:white;
+}
+
+#footer {
+	color: #9a9a9a;
+	font-size: 12px;
+	text-align: center;
+	transition: 0.3s;
 }

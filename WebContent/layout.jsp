@@ -6,7 +6,7 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <title>presteej 레이아웃 페이지</title>
-<link rel="stylesheet" href="./css/bnj.layout.css">
+<link rel="stylesheet" href="./css/bnj.layout.css?ver=1">
 <link rel="stylesheet" href="./css/w3.css">
 <link rel="stylesheet" href="./css/material.min.css">
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -45,7 +45,7 @@
   </c:if>
 </section>
 <footer style="z-index:2;">
-  <p> 프로젝트 이름 : Presteej 조 이름 : BnJ 만든 이 : 구본일, 양정석</p>
+  <p id="footer"> 프로젝트 이름 : Presteej 조 이름 : BnJ 만든 이 : 구본일, 양정석</p>
 </footer>
 </div>
 </body>

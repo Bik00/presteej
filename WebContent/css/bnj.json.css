@@ -1,0 +1,70 @@
+@CHARSET "UTF-8";
+
+/* ============== userMain.jsp에 쓰인 CSS ============== */
+
+.card {
+	box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+	transition: 0.3s;
+	width: 20%;
+	height: 65%;
+	visibility: hidden;
+	cursor:default;
+}
+
+#item {
+	margin-left: 50px;
+	margin-right: 0%;
+	margin-top: 30px;
+	float: left;
+	color: #430fa3;
+}
+
+#image {
+	width:200px;
+	height:200px;
+}
+
+.card:hover {
+	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.8);
+}
+
+.container {
+	text-align:center;
+	margin-bottom:0;
+}
+
+p {
+	margin:0 0 2;
+	font-size:18px;
+	text-align:left;
+}
+
+.slideUp {
+    animation-name: slideUp;
+    -webkit-animation-name: slideUp;
+    animation-duration: 1s;
+    -webkit-animation-duration: 1s;
+    visibility: visible;
+}
+
+@keyframes slideUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20%);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}
+
+@-webkit-keyframes slideUp {
+    0% {
+        opacity: 0;
+        -webkit-transform: translateY(20%);
+    }
+    100% {
+        opacity: 1;
+        -webkit-transform: translateY(0%);
+    }
+}

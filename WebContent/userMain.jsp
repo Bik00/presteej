@@ -11,6 +11,8 @@
 <link rel="stylesheet" href="./css/material.min.css">
 <script src="./js/material.min.js"></script>
 <script src="./js/bnj.clock.js"></script>
+<script src="./json/bnj.userJson.js?ver=9"></script>
+<link rel="stylesheet" href="./css/bnj.json.css">
 <title>Presteej User 메인 화면</title>
 </head>
 <body onLoad="goforit()">
@@ -24,7 +26,9 @@
 
 		<div class="w3-container w3-padding-32" id="ING">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">현재 진행중인 경매 물품 목록</h3>
- 			<a href="bidList.do"><input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" value="보러가기"></a>
+<!-- 			<a href="bidList.do"><input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" value="보러가기"></a> -->
+			<div id = "callJson"></div>
+				<div id="name" style="visibility:hidden">${name}</div>
 		</div>
 		<div class="w3-container w3-padding-32" id="Q&A">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">낙찰 이력</h3>

@@ -58,7 +58,7 @@ $(document).ready(function () {
 		</div>
 		<div class="container">
 			<label><b>관리자 아이디</b></label> <input type="text"
-				placehold	er="Enter Username" name="id" id="id" required> <label><b>관리자
+				placeholder="Enter Username" name="id" id="id" required> <label><b>관리자
 					비밀번호</b></label> <input type="password" placeholder="Enter Password" id="password" name="password"
 				required>
 			<button type="button" id="loginAdminButton" name="enter">로그인</button>

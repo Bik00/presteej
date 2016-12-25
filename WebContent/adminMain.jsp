@@ -30,7 +30,7 @@
    		<div class="w3-container w3-padding-32" id="schedule">
 			<h3 class="w3-border-bottom w3-border-light-grey w3-padding-12">경매 일정 현황</h3>
  			<a href="itemList.do"><input class="mdl-button mdl-js-button mdl-button--raised mdl-js-ripple-effect mdl-button--accent" type="button" value="보러가기"></a>
-			<jsp:include page="/test.jsp" flush="false"/>
+			<jsp:include page="/schedule.jsp" flush="false"/>
 		</div>
   
   		<div class="w3-container w3-padding-32" id="graphs">
